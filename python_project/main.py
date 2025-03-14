@@ -3,11 +3,8 @@ import time
 
 
 url = 'https://api.pokemonbattle.ru/v2'
-
 token = '802fc5c651ee0bc38f034cba6dcbab40'
-
 header = {'Content-Type':'application/json', 'trainer_token': token}
-
 trainer_id = '27915'
 
 # 1 Создаём покемона
@@ -19,6 +16,7 @@ body = {
 
 response = requests.post(url = f'{url}/pokemons', headers = header, json = body)
 time.sleep(1)
+print(response)
 
 # записываем айди
 
@@ -32,6 +30,7 @@ body_name = {
 
 response = requests.patch(url = f'{url}/pokemons', headers= header, json = body_name) 
 time.sleep(1)
+print(response)
 
 # 3 Ловим покемона в покебол
 
@@ -41,5 +40,5 @@ body_catch = {
 }
 
 response = requests.post(url = f'{url}/trainers/add_pokeball', headers = header, json = body_catch)
-
+print(response)
 print('Успех')
